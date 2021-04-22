@@ -1,0 +1,21 @@
+{
+  "name": "ecommercePlatziMaster",
+  "version": "1.0.0",
+  "description": "Platzi Master Challenge # 2 Ecommerce",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass --watch ./src/scss/styles.scss ./src/css/styles.css"
+  },
+  "keywords": [
+    "sass",
+    "Javascript",
+    "Css",
+    "DOM"
+  ],
+  "author": "Leonardo Rincon <jleobotache@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "sass": "^1.32.11"
+  }
+}
