@@ -1,0 +1,106 @@
+@import "./variables.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+//********************* Styles header
+header {
+  width: 100vw;
+  height: 80px;
+  background-color: $white;
+  display: flex;
+  align-items: center;
+}
+
+header .header__container-logo {
+  display: flex;
+  // justify-content: center;
+  align-items: center;
+  width: 85%;
+}
+
+.header__container-logo h1 {
+  font-size: 2.4rem;
+  color: $orange;
+}
+
+.container-logo--logo {
+  font-size: 4.5rem;
+  margin: 0 20px;
+  color: $green;
+}
+
+.container-logo--menu {
+  font-size: 4.5rem;
+  margin-right: 25px;
+  color: $green;
+}
+
+//********************* Styles Navbar
+
+.navbar {
+  width: 100vw;
+  height: 50px;
+  background-color: $light-green;
+  display: flex;
+  align-items: center;
+}
+
+.navbar__search {
+  margin-left: 20px;
+  width: 60%;
+  background-color: $white;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.navbar__search input {
+  width: 150px;
+  height: 30px;
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  padding: 0 15px;
+  background-color: $white;
+}
+.navbar__search .icon-search {
+  font-size: 1.8rem;
+  color: $green;
+}
+
+.navbar--car,
+.navbar--favorite {
+  font-size: 2.4rem;
+  color: $orange;
+  margin-left: 18px;
+}
+
+.footer {
+  width: 100vw;
+  height: 60px;
+  position: fixed;
+  bottom: 0;
+  background-color: $light-green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer--icon-github,
+.footer--icon-twitter,
+.footer--icon-instagram {
+  font-size: 2.8rem;
+  margin-left: 25px;
+  color: $orange;
+}
