@@ -1,8 +1,16 @@
-const btnMenu = document.getElementById("icon-menu");
-const menu = document.getElementById("menu");
+// const btnMenu = document.getElementById("icon-menu");
+// const menu = document.getElementById("menu");
 
-const VisivilityMenu = () => {
-  menu.classList.toggle("menu-visivility");
+// const VisivilityMenu = () => {
+//   menu.classList.toggle("menu-visivility");
+// };
+
+// btnMenu.addEventListener("click", VisivilityMenu);
+
+const miconMenu = document.getElementById("icon-menu");
+
+const openCloseMenu = () => {
+  miconMenu.classList.toggle("menu-active");
 };
 
-btnMenu.addEventListener("click", VisivilityMenu);
+miconMenu.addEventListener("click", openCloseMenu);

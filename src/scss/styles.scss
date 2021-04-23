@@ -44,79 +44,47 @@ header {
     }
   }
 
-  & .container-logo--menu {
-    font-size: 4.5rem;
-    margin-right: 25px;
-    color: $blue-dark;
-  }
-
-  & .container-menu {
-    width: 150px;
-    height: auto;
-    background-color: $white;
-    position: absolute;
-    right: 0;
-    top: 60px;
+  & .icon-menu {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+    cursor: pointer;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    transition: transform 1s;
-    transform: translateX(200px);
-    opacity: 0;
-    visibility: hidden;
-
-    & li {
-      width: 80%;
-      margin: 20px 0;
-      list-style: none;
-
-      & a {
-        width: 100%;
-        text-decoration: none;
-        color: $orange;
-        font-size: 2rem;
-      }
-
-      & a:hover {
-        color: $blue-dark;
-      }
-    }
-    & li:hover {
-      transform: scale(1.1);
-    }
+    transform: 0.2s;
   }
 
-  & .container-menu.menu-visivility {
-    transform: translateX(0px);
-    opacity: 1;
-    visibility: visible;
-    transition: transform 1s;
-  }
-}
-
-.categorias {
-  & .container-subcategorias {
-    background-color: $white;
-    display: none;
+  & .icon-menu::before {
+    content: "";
     position: absolute;
-    right: 120px;
-    width: 160px;
-
-    & li {
-      width: 100%;
-
-      text-align: center;
-
-      & a {
-        // color: $blue-dark;
-      }
-    }
+    width: 28px;
+    height: 3px;
+    background-color: $blue-dark;
+    transform: 0.2s;
+    transform: translateY(-10px);
+    box-shadow: 0 10px 0 $blue-dark;
   }
-}
-.categorias:hover {
-  & .container-subcategorias {
-    display: inline-block;
+  & .icon-menu::after {
+    content: "";
+    position: absolute;
+    width: 28px;
+    height: 3px;
+    background-color: $blue-dark;
+    transform: 0.2s;
+    transform: translateY(10px);
+  }
+
+  & .icon-menu.menu-active::before {
+    transform: translateY(0px) rotate(45deg);
+    box-shadow: 0 0 0 $orange;
+    background-color: $orange;
+  }
+
+  & .icon-menu.menu-active::after {
+    transform: translateY(0px) rotate(-45deg);
+    background-color: $orange;
   }
 }
 //********************* Styles Navbar
