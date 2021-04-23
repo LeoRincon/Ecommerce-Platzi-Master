@@ -86,6 +86,61 @@ header {
     transform: translateY(0px) rotate(-45deg);
     background-color: $orange;
   }
+
+  & .container-menu {
+    position: fixed;
+    top: 20px;
+    right: 30px;
+
+    & .menu {
+      position: absolute;
+      top: 80px;
+      right: -30px;
+      padding: 10px 20px;
+      background-color: $white;
+      width: 200px;
+      border-radius: 15px;
+      transition: 0.5s;
+      visibility: hidden;
+      opacity: 0;
+
+      & .menu__list {
+        & li {
+          list-style: none;
+          padding: 10px 0;
+
+          & a {
+            font-size: 1.8rem;
+            display: inline-block;
+            text-decoration: none;
+            color: $orange;
+            font-weight: 500;
+            transition: 0.5s;
+          }
+          &:hover a {
+            color: $blue-dark;
+          }
+        }
+      }
+    }
+
+    & .menu::before {
+      content: "";
+      position: absolute;
+      top: 3px;
+      right: 65px;
+      width: 20px;
+      height: 20px;
+      background-color: $white;
+      transform: rotate(45deg);
+    }
+
+    & .menu.menu-list--active {
+      top: 40px;
+      visibility: visible;
+      opacity: 1;
+    }
+  }
 }
 //********************* Styles Navbar
 

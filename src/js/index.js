@@ -7,10 +7,12 @@
 
 // btnMenu.addEventListener("click", VisivilityMenu);
 
-const miconMenu = document.getElementById("icon-menu");
+const iconMenu = document.getElementById("icon-menu");
+const menu = document.getElementById("menu");
 
 const openCloseMenu = () => {
-  miconMenu.classList.toggle("menu-active");
+  iconMenu.classList.toggle("menu-active");
+  menu.classList.toggle("menu-list--active");
 };
 
-miconMenu.addEventListener("click", openCloseMenu);
+iconMenu.addEventListener("click", openCloseMenu);
