@@ -12,12 +12,18 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
+body {
+  width: 100vw;
+  height: 100vh;
+}
+
 header {
   width: 100vw;
   height: 80px;
   background-color: #f9fcfb;
   display: flex;
   align-items: center;
+  position: relative;
 }
 header .header__container-logo {
   display: flex;
@@ -37,6 +43,58 @@ header .container-logo--menu {
   font-size: 4.5rem;
   margin-right: 25px;
   color: #0097a7;
+}
+header .container-menu {
+  width: 150px;
+  height: auto;
+  background-color: #f9fcfb;
+  position: absolute;
+  right: 0;
+  top: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: transform 1s;
+  transform: translateX(200px);
+  opacity: 0;
+  visibility: hidden;
+}
+header .container-menu li {
+  margin: 15px 0;
+  list-style: none;
+}
+header .container-menu li a {
+  text-decoration: none;
+  color: #fd5e53;
+  font-size: 1.8rem;
+}
+header .container-menu li a:hover {
+  color: #0097a7;
+}
+header .container-menu li:hover {
+  transform: scale(1.1);
+}
+header .container-menu.menu-visivility {
+  transform: translateX(0px);
+  opacity: 1;
+  visibility: visible;
+  transition: transform 1s;
+}
+
+.categorias .container-subcategorias {
+  background-color: #f9fcfb;
+  display: none;
+  position: absolute;
+  right: 95px;
+  width: 150px;
+}
+.categorias .container-subcategorias li {
+  text-align: center;
+}
+
+.categorias:hover .container-subcategorias {
+  display: inline-block;
 }
 
 .navbar {
