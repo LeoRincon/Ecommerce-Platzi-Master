@@ -67,13 +67,15 @@ header {
     visibility: hidden;
 
     & li {
-      margin: 15px 0;
+      width: 80%;
+      margin: 20px 0;
       list-style: none;
 
       & a {
+        width: 100%;
         text-decoration: none;
         color: $orange;
-        font-size: 1.8rem;
+        font-size: 2rem;
       }
 
       & a:hover {
@@ -98,11 +100,17 @@ header {
     background-color: $white;
     display: none;
     position: absolute;
-    right: 95px;
-    width: 150px;
+    right: 120px;
+    width: 160px;
 
     & li {
+      width: 100%;
+
       text-align: center;
+
+      & a {
+        // color: $blue-dark;
+      }
     }
   }
 }
