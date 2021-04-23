@@ -19,39 +19,34 @@ header {
   display: flex;
   align-items: center;
 }
-
 header .header__container-logo {
   display: flex;
   align-items: center;
   width: 85%;
 }
-
-.header__container-logo h1 {
+header .header__container-logo h1 {
   font-size: 2.4rem;
   color: #fd5e53;
 }
-
-.container-logo--logo {
+header .header__container-logo .container-logo--logo {
   font-size: 4.5rem;
   margin: 0 20px;
-  color: #21bf73;
+  color: #0097a7;
 }
-
-.container-logo--menu {
+header .container-logo--menu {
   font-size: 4.5rem;
   margin-right: 25px;
-  color: #21bf73;
+  color: #0097a7;
 }
 
 .navbar {
   width: 100vw;
   height: 50px;
-  background-color: #b0eacd;
+  background-color: #b2ebf2;
   display: flex;
   align-items: center;
 }
-
-.navbar__search {
+.navbar .navbar__search {
   margin-left: 20px;
   width: 60%;
   background-color: #f9fcfb;
@@ -60,8 +55,7 @@ header .header__container-logo {
   justify-content: center;
   align-items: center;
 }
-
-.navbar__search input {
+.navbar .navbar__search input {
   width: 150px;
   height: 30px;
   border: none;
@@ -70,10 +64,9 @@ header .header__container-logo {
   padding: 0 15px;
   background-color: #f9fcfb;
 }
-
-.navbar__search .icon-search {
+.navbar .navbar__search .icon-search {
   font-size: 1.8rem;
-  color: #21bf73;
+  color: #0097a7;
 }
 
 .navbar--car,
@@ -88,15 +81,14 @@ header .header__container-logo {
   height: 60px;
   position: fixed;
   bottom: 0;
-  background-color: #b0eacd;
+  background-color: #b2ebf2;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
-.footer--icon-github,
-.footer--icon-twitter,
-.footer--icon-instagram {
+.footer .footer--icon-github,
+.footer .footer--icon-twitter,
+.footer .footer--icon-instagram {
   font-size: 2.8rem;
   margin-left: 25px;
   color: #fd5e53;
