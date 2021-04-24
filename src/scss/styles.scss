@@ -223,6 +223,7 @@ header {
 main {
   width: 90%;
   margin: 30px auto;
+  padding-bottom: 50px;
 
   & .container-products {
     // background-color: red;
@@ -235,6 +236,7 @@ main {
       min-width: 220px;
       max-width: 320px;
       height: 170px;
+      margin-bottom: 20px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -255,8 +257,13 @@ main {
         color: $blue-dark;
       }
 
-      & span {
+      & h5 {
         font-size: 1.4rem;
+        color: $blue-dark;
+        opacity: 0.8;
+      }
+      & span {
+        font-size: 1.2rem;
         color: $orange;
       }
 
@@ -294,6 +301,7 @@ main {
   height: 60px;
   position: fixed;
   bottom: 0;
+  // margin-top: 30px;
   background-color: $light-blue;
   display: flex;
   justify-content: center;

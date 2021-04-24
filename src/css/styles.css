@@ -183,6 +183,7 @@ header .list-items-categorias:hover .container-subcategorias, header .container-
 main {
   width: 90%;
   margin: 30px auto;
+  padding-bottom: 50px;
 }
 main .container-products {
   display: grid;
@@ -193,6 +194,7 @@ main .container-products .product-card {
   min-width: 220px;
   max-width: 320px;
   height: 170px;
+  margin-bottom: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -210,8 +212,13 @@ main .container-products .product-card h4 {
   font-size: 1.8rem;
   color: #0097a7;
 }
-main .container-products .product-card span {
+main .container-products .product-card h5 {
   font-size: 1.4rem;
+  color: #0097a7;
+  opacity: 0.8;
+}
+main .container-products .product-card span {
+  font-size: 1.2rem;
   color: #fd5e53;
 }
 main .container-products .product-card .fovorite-car {
