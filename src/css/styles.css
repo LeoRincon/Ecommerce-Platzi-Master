@@ -10,9 +10,6 @@ html {
 
 body {
   font-family: "Roboto", sans-serif;
-}
-
-body {
   width: 100vw;
   height: 100vh;
 }
@@ -81,25 +78,57 @@ header .icon-menu.menu-active::after {
 header .container-menu {
   position: fixed;
   top: 20px;
-  right: 30px;
+  right: 0px;
 }
 header .container-menu .menu {
   position: absolute;
+  display: flex;
+  justify-content: center;
   top: 80px;
-  right: -30px;
-  padding: 10px 20px;
+  right: 0px;
   background-color: #f9fcfb;
-  width: 200px;
+  width: 180px;
   border-radius: 15px;
   transition: 0.5s;
   visibility: hidden;
   opacity: 0;
 }
-header .container-menu .menu .menu__list li {
+header .container-menu .menu .menu__list {
+  width: 90%;
+}
+header .container-menu .menu .menu__list .list-items-categorias, header .container-menu .menu .menu__list .container-subcategorias li, header .container-subcategorias .container-menu .menu .menu__list li {
+  width: 100%;
+  text-align: center;
   list-style: none;
   padding: 10px 0;
 }
-header .container-menu .menu .menu__list li a {
+header .container-menu .menu .menu__list .list-items-categorias .item-categoria, header .container-menu .menu .menu__list .container-subcategorias li .item-categoria, header .container-subcategorias .container-menu .menu .menu__list li .item-categoria {
+  font-size: 2.2rem;
+  display: inline-block;
+  text-decoration: none;
+  color: #fd5e53;
+  font-weight: 500;
+  transition: 0.5s;
+}
+header .container-menu .menu .menu__list .list-items-categorias:hover .item-categoria, header .container-menu .menu .menu__list .container-subcategorias li:hover .item-categoria, header .container-subcategorias .container-menu .menu .menu__list li:hover .item-categoria {
+  color: #0097a7;
+}
+header .container-menu .menu.menu-list--active {
+  top: 40px;
+  visibility: visible;
+  opacity: 1;
+}
+header .container-subcategorias {
+  position: absolute;
+  position: absolute;
+  width: 160px;
+  height: auto;
+  right: 140px;
+  background-color: #f9fcfb;
+  text-align: center;
+  display: none;
+}
+header .container-subcategorias li a {
   font-size: 1.8rem;
   display: inline-block;
   text-decoration: none;
@@ -107,23 +136,11 @@ header .container-menu .menu .menu__list li a {
   font-weight: 500;
   transition: 0.5s;
 }
-header .container-menu .menu .menu__list li:hover a {
+header .container-subcategorias li:hover a {
   color: #0097a7;
 }
-header .container-menu .menu::before {
-  content: "";
-  position: absolute;
-  top: 3px;
-  right: 65px;
-  width: 20px;
-  height: 20px;
-  background-color: #f9fcfb;
-  transform: rotate(45deg);
-}
-header .container-menu .menu.menu-list--active {
-  top: 40px;
-  visibility: visible;
-  opacity: 1;
+header .list-items-categorias:hover .container-subcategorias, header .container-subcategorias li:hover .container-subcategorias {
+  display: inline-block;
 }
 
 .navbar {
@@ -161,6 +178,62 @@ header .container-menu .menu.menu-list--active {
   font-size: 2.4rem;
   color: #fd5e53;
   margin-left: 18px;
+}
+
+main {
+  width: 90%;
+  margin: 30px auto;
+}
+main .container-products {
+  display: grid;
+  justify-content: center;
+}
+main .container-products .product-card {
+  width: 250px;
+  min-width: 220px;
+  max-width: 320px;
+  height: 170px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: -1px 1px 6px 0px #afadad;
+  border-radius: 20px;
+  background-color: #f9fcfb;
+}
+main .container-products .product-card img {
+  border-radius: 20px;
+  width: 150px;
+  height: 60px;
+}
+main .container-products .product-card h4 {
+  font-size: 1.8rem;
+  color: #0097a7;
+}
+main .container-products .product-card span {
+  font-size: 1.4rem;
+  color: #fd5e53;
+}
+main .container-products .product-card .fovorite-car {
+  margin-top: 15px;
+  width: 60%;
+  display: flex;
+  justify-content: center;
+}
+main .container-products .product-card .fovorite-car .fovorite-car--favorite {
+  font-size: 3rem;
+  color: #0097a7;
+}
+main .container-products .product-card .fovorite-car .fovorite-car--favorite:hover {
+  color: #fd5e53;
+}
+main .container-products .product-card .fovorite-car .fovorite-car--car {
+  margin-left: 15px;
+  font-size: 3rem;
+  color: #fd5e53;
+}
+main .container-products .product-card .fovorite-car .fovorite-car--car:hover {
+  color: #0097a7;
 }
 
 .footer {

@@ -11,14 +11,11 @@ html {
 
 body {
   font-family: "Roboto", sans-serif;
-}
-
-//********************* Styles header
-body {
   width: 100vw;
   height: 100vh;
 }
 
+//********************* Styles header
 header {
   width: 100vw;
   height: 80px;
@@ -90,56 +87,94 @@ header {
   & .container-menu {
     position: fixed;
     top: 20px;
-    right: 30px;
+    right: 0px;
 
     & .menu {
       position: absolute;
+      display: flex;
+      justify-content: center;
       top: 80px;
-      right: -30px;
-      padding: 10px 20px;
+      right: 0px;
+      // padding: 10px 20px;
       background-color: $white;
-      width: 200px;
+      width: 180px;
       border-radius: 15px;
       transition: 0.5s;
       visibility: hidden;
       opacity: 0;
 
       & .menu__list {
-        & li {
+        width: 90%;
+        & .list-items-categorias {
+          width: 100%;
+          text-align: center;
           list-style: none;
           padding: 10px 0;
 
-          & a {
-            font-size: 1.8rem;
+          & .item-categoria {
+            font-size: 2.2rem;
             display: inline-block;
             text-decoration: none;
             color: $orange;
             font-weight: 500;
             transition: 0.5s;
           }
-          &:hover a {
+          &:hover .item-categoria {
             color: $blue-dark;
           }
         }
       }
     }
 
-    & .menu::before {
-      content: "";
-      position: absolute;
-      top: 3px;
-      right: 65px;
-      width: 20px;
-      height: 20px;
-      background-color: $white;
-      transform: rotate(45deg);
-    }
+    // & .menu::before {
+    //   content: "";
+    //   position: absolute;
+    //   top: 3px;
+    //   right: 65px;
+    //   width: 20px;
+    //   height: 20px;
+    //   background-color: $white;
+    //   transform: rotate(45deg);
+    // }
 
     & .menu.menu-list--active {
       top: 40px;
       visibility: visible;
       opacity: 1;
     }
+  }
+
+  & .container-subcategorias {
+    position: absolute;
+    position: absolute;
+    width: 160px;
+    height: auto;
+    // top: 0px;
+    right: 140px;
+    background-color: $white;
+    text-align: center;
+    display: none;
+
+    & li {
+      @extend .list-items-categorias;
+
+      & a {
+        font-size: 1.8rem;
+        display: inline-block;
+        text-decoration: none;
+        color: $orange;
+        font-weight: 500;
+        transition: 0.5s;
+      }
+
+      &:hover a {
+        color: $blue-dark;
+      }
+    }
+  }
+
+  & .list-items-categorias:hover .container-subcategorias {
+    display: inline-block;
   }
 }
 //********************* Styles Navbar
@@ -184,6 +219,75 @@ header {
   margin-left: 18px;
 }
 
+// ************************** Styles main Product
+main {
+  width: 90%;
+  margin: 30px auto;
+
+  & .container-products {
+    // background-color: red;
+    display: grid;
+    justify-content: center;
+
+    & .product-card {
+      // background-color: royalblue;
+      width: 250px;
+      min-width: 220px;
+      max-width: 320px;
+      height: 170px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      // border: 1px solid black;
+      box-shadow: -1px 1px 6px 0px $color-shodow;
+      border-radius: 20px;
+      background-color: $white;
+
+      & img {
+        border-radius: 20px;
+        width: 150px;
+        height: 60px;
+      }
+
+      & h4 {
+        font-size: 1.8rem;
+        color: $blue-dark;
+      }
+
+      & span {
+        font-size: 1.4rem;
+        color: $orange;
+      }
+
+      & .fovorite-car {
+        margin-top: 15px;
+        width: 60%;
+        display: flex;
+        justify-content: center;
+
+        & .fovorite-car--favorite {
+          font-size: 3rem;
+          color: $blue-dark;
+        }
+
+        & .fovorite-car--favorite:hover {
+          color: $orange;
+        }
+
+        & .fovorite-car--car {
+          margin-left: 15px;
+          font-size: 3rem;
+          color: $orange;
+        }
+
+        & .fovorite-car--car:hover {
+          color: $blue-dark;
+        }
+      }
+    }
+  }
+}
 // ************************** Styles Footer
 .footer {
   width: 100vw;
