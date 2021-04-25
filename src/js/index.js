@@ -1,9 +1,15 @@
 const iconMenu = document.getElementById("icon-menu");
+const items = document.getElementById("items");
+const footerCar = document.getElementById("footer-car");
 const menu = document.getElementById("menu");
 const mount = document.getElementById("mount-products");
 const templateProduct = document.getElementById("container-products").content;
+const templateFooterCar = document.getElementById("template-footer--car")
+  .content;
+const templateCar = document.getElementById("template-car").content;
+
 const fragment = document.createDocumentFragment();
-const Car = {};
+const car = {};
 
 // ******************* Code Menu
 
@@ -66,8 +72,40 @@ const addCar = (e) => {
 
 const setCar = (obj) => {
   // console.log(obj);
-  const product = {
+  const producto = {
     id: obj.querySelector(".fovorite-car--car").dataset.id,
+    make: obj.querySelector("h4").textContent,
+    model: obj.querySelector("h5").textContent,
+    price: obj.querySelector("span").textContent,
+    amount: 1,
   };
-  console.log(product);
+
+  if (car.hasOwnProperty(producto.id)) {
+    producto.amount = car[producto.id].amount + 1;
+  }
+  car[producto.id] = { ...producto };
+  // console.log(car);
+  paintCar();
+};
+
+const paintCar = () => {
+  console.log(car);
+  items.innerHTML = "";
+  Object.values(car).forEach((producto) => {
+    templateCar.querySelector("th").textContent = producto.id;
+    templateCar.querySelectorAll("td")[0].textContent = producto.make;
+    templateCar.querySelectorAll("td")[1].textContent = producto.model;
+    templateCar.querySelectorAll("td")[2].textContent = producto.price;
+    templateCar.querySelectorAll("td")[3].textContent = producto.amount;
+    templateCar.querySelector(".btn-add").dataset.id = producto.id;
+    templateCar.querySelector(".btn-subtract").dataset.id = producto.id;
+    templateCar.querySelector("span").textContent =
+      producto.amount * producto.price;
+    // debugger;
+
+    const clone = templateCar.cloneNode(true);
+    fragment.appendChild(clone);
+  });
+
+  items.appendChild(fragment);
 };
