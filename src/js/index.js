@@ -1,6 +1,7 @@
 const iconMenu = document.getElementById("icon-menu");
 const items = document.getElementById("items");
 const footerCar = document.getElementById("footer-car");
+// debugger;
 const menu = document.getElementById("menu");
 const mount = document.getElementById("mount-products");
 const templateProduct = document.getElementById("container-products").content;
@@ -9,7 +10,7 @@ const templateFooterCar = document.getElementById("template-footer--car")
 const templateCar = document.getElementById("template-car").content;
 
 const fragment = document.createDocumentFragment();
-const car = {};
+let car = {};
 
 // ******************* Code Menu
 
@@ -23,12 +24,20 @@ iconMenu.addEventListener("click", openCloseMenu);
 // ******************* Code call to the Api
 
 document.addEventListener("DOMContentLoaded", (e) => {
-  console.log(e);
+  // console.log(e);
   fetchData();
+  if (localStorage.getItem("car")) {
+    car = JSON.parse(localStorage.getItem("car"));
+    paintCar();
+  }
 });
 
 mount.addEventListener("click", (e) => {
   addCar(e);
+});
+
+items.addEventListener("click", (e) => {
+  btnAmount(e);
 });
 
 const fetchData = async () => {
@@ -89,7 +98,7 @@ const setCar = (obj) => {
 };
 
 const paintCar = () => {
-  console.log(car);
+  // console.log(car);
   items.innerHTML = "";
   Object.values(car).forEach((producto) => {
     templateCar.querySelector("th").textContent = producto.id;
@@ -108,4 +117,65 @@ const paintCar = () => {
   });
 
   items.appendChild(fragment);
+
+  paintFooterCar();
+
+  localStorage.setItem("car", JSON.stringify(car));
+};
+
+const paintFooterCar = () => {
+  footerCar.innerHTML = "";
+  if (Object.keys(car).length === 0) {
+    footerCar.innerHTML = `<th scope="row" colspan="5">Carrito vacío</th>`;
+    return;
+  }
+
+  const totalAmount = Object.values(car).reduce(
+    (accumulator, { amount }) => accumulator + amount,
+    0
+  );
+
+  const totalPrice = Object.values(car).reduce(
+    (accumulator, { amount, price }) => accumulator + amount * price,
+    0
+  );
+  // console.log(totalAmount);
+  // console.log(totalPrice);
+  templateFooterCar.querySelectorAll("td")[0].textContent = totalAmount;
+  templateFooterCar.querySelector("span").textContent = totalPrice;
+
+  const clone = templateFooterCar.cloneNode(true);
+  fragment.appendChild(clone);
+  footerCar.appendChild(fragment);
+  const emptyCar = document.getElementById("empty-car");
+  // debugger;
+
+  emptyCar.addEventListener("click", () => {
+    car = {};
+    paintCar();
+  });
+};
+
+const btnAmount = (e) => {
+  // console.log(e.target);
+  if (e.target.classList.contains("btn-add")) {
+    // console.log(car[e.target.dataset.id]);
+    const producto = car[e.target.dataset.id];
+    producto.amount++;
+    car[e.target.dataset.id] = { ...producto };
+    paintCar();
+  }
+
+  if (e.target.classList.contains("btn-subtract")) {
+    // console.log(car[e.target.dataset.id]);
+    const producto = car[e.target.dataset.id];
+    producto.amount--;
+    if (producto.amount === 0) {
+      delete car[e.target.dataset.id];
+    }
+    // car[e.target.dataset.id] = { ...producto };
+    paintCar();
+  }
+
+  e.stopPropagation();
 };
