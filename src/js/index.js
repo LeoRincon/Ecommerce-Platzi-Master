@@ -10,6 +10,11 @@ const templateFooterCar = document.getElementById("template-footer--car")
 const templateCar = document.getElementById("template-car").content;
 
 const fragment = document.createDocumentFragment();
+const category1 = document.getElementById("item-category1");
+const table = document.querySelector(".table");
+const btnCart = document.querySelector(".navbar--car");
+console.log(category1);
+
 let car = {};
 
 // ******************* Code Menu
@@ -23,12 +28,22 @@ iconMenu.addEventListener("click", openCloseMenu);
 
 // ******************* Code call to the Api
 
-document.addEventListener("DOMContentLoaded", (e) => {
+const activeTable = () => {
+  mount.innerHTML = "";
+  table.classList.toggle("table-active");
+};
+
+category1.addEventListener("click", (e) => {
+  openCloseMenu();
+  // activeTable();
   // console.log(e);
   fetchData();
   if (localStorage.getItem("car")) {
     car = JSON.parse(localStorage.getItem("car"));
     paintCar();
+  }
+  if (table.classList.contains("table-active")) {
+    table.classList.toggle("table-active");
   }
 });
 
@@ -179,3 +194,13 @@ const btnAmount = (e) => {
 
   e.stopPropagation();
 };
+
+// const table = document.querySelector(".table");
+// const btnCart = document.querySelector(".navbar--car");
+
+// const activeTable = () => {
+//   mount.innerHTML = "";
+//   table.classList.toggle("table-active");
+// };
+
+btnCart.addEventListener("click", activeTable);

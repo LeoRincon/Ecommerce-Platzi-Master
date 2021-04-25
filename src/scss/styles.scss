@@ -295,6 +295,13 @@ main {
     }
   }
 }
+
+.table {
+  display: none;
+}
+.table-active {
+  display: table;
+}
 // ************************** Styles Footer
 .footer {
   width: 100vw;

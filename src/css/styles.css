@@ -243,6 +243,14 @@ main .container-products .product-card .fovorite-car .fovorite-car--car:hover {
   color: #0097a7;
 }
 
+.table {
+  display: none;
+}
+
+.table-active {
+  display: table;
+}
+
 .footer {
   width: 100vw;
   height: 60px;
