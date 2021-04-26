@@ -1,5 +1,7 @@
 const iconMenu = document.getElementById("icon-menu");
+//items del carrito
 const items = document.getElementById("items");
+
 const footerCar = document.getElementById("footer-car");
 // debugger;
 const menu = document.getElementById("menu");
@@ -9,10 +11,12 @@ const templateFooterCar = document.getElementById("template-footer--car")
   .content;
 const templateCar = document.getElementById("template-car").content;
 
-const fragment = document.createDocumentFragment();
 const category1 = document.getElementById("item-category1");
-const table = document.querySelector(".table");
+const tableCar = document.querySelector(".table-car");
+
 const btnCart = document.querySelector(".navbar--car");
+const fragment = document.createDocumentFragment();
+
 console.log(category1);
 
 let car = {};
@@ -30,7 +34,7 @@ iconMenu.addEventListener("click", openCloseMenu);
 
 const activeTable = () => {
   mount.innerHTML = "";
-  table.classList.toggle("table-active");
+  tableCar.classList.toggle("table-active");
 };
 
 category1.addEventListener("click", (e) => {
@@ -42,8 +46,8 @@ category1.addEventListener("click", (e) => {
     car = JSON.parse(localStorage.getItem("car"));
     paintCar();
   }
-  if (table.classList.contains("table-active")) {
-    table.classList.toggle("table-active");
+  if (tableCar.classList.contains("table-active")) {
+    tableCar.classList.remove("table-active");
   }
 });
 
@@ -58,7 +62,8 @@ items.addEventListener("click", (e) => {
 const fetchData = async () => {
   try {
     const answer = await fetch(
-      "https://my.api.mockaroo.com/api_ecommerce.json?key=9a562940"
+      // "https://my.api.mockaroo.com/api_ecommerce.json?key=9a562940"
+      "../api.json"
     );
     // debugger;
     const data = await answer.json();

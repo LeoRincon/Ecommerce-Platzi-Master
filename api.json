@@ -1,0 +1,93 @@
+[
+  {
+    "id": 1,
+    "make": "Kia",
+    "model": "Rio",
+    "price": 100,
+    "img": "https://via.placeholder.com/150/771796"
+  },
+  {
+    "id": 2,
+    "make": "Kia2",
+    "model": "Rio",
+    "price": 100,
+    "img": "https://via.placeholder.com/150/771796"
+  },
+  {
+    "id": 3,
+    "make": "Kia3",
+    "model": "Rio",
+    "price": 100,
+    "img": "https://via.placeholder.com/150/771796"
+  },
+  {
+    "id": 4,
+    "make": "Kia4",
+    "model": "Rio",
+    "price": 100,
+    "img": "https://via.placeholder.com/150/771796"
+  },
+  {
+    "id": 5,
+    "make": "Kia5",
+    "model": "Rio",
+    "price": 100,
+    "img": "https://via.placeholder.com/150/771796"
+  },
+  {
+    "id": 6,
+    "make": "Kia6",
+    "model": "Rio",
+    "price": 100,
+    "img": "https://via.placeholder.com/150/771796"
+  },
+  {
+    "id": 7,
+    "make": "Kia7",
+    "model": "Rio",
+    "price": 100,
+    "img": "https://via.placeholder.com/150/771796"
+  },
+  {
+    "id": 8,
+    "make": "Kia8",
+    "model": "Rio",
+    "price": 100,
+    "img": "https://via.placeholder.com/150/771796"
+  },
+  {
+    "id": 9,
+    "make": "Kia9",
+    "model": "Rio",
+    "price": 100,
+    "img": "https://via.placeholder.com/150/771796"
+  },
+  {
+    "id": 10,
+    "make": "Kia10",
+    "model": "Rio",
+    "price": 100,
+    "img": "https://via.placeholder.com/150/771796"
+  },
+  {
+    "id": 11,
+    "make": "Kia11",
+    "model": "Rio",
+    "price": 100,
+    "img": "https://via.placeholder.com/150/771796"
+  },
+  {
+    "id": 12,
+    "make": "Kia12",
+    "model": "Rio",
+    "price": 100,
+    "img": "https://via.placeholder.com/150/771796"
+  },
+  {
+    "id": 13,
+    "make": "Kia13",
+    "model": "Rio",
+    "price": 100,
+    "img": "https://via.placeholder.com/150/771796"
+  }
+]
