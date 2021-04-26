@@ -153,6 +153,10 @@ items.addEventListener("click", (e) => {
   btnAmount(e);
 });
 
+itemsFavorite.addEventListener("click", (e) => {
+  btnDeleteFavorite(e);
+});
+
 const addProduct = (e) => {
   // console.log(e.target);
   // console.log(e.target.classList.contains("fovorite-car--car"));
@@ -234,14 +238,15 @@ const paintCar = () => {
 
 const paintFavorite = () => {
   console.log(favorite);
-  // items.innerHTML = "";
+  itemsFavorite.innerHTML = "";
   Object.values(favorite).forEach((product) => {
     templateFavorite.querySelector("th").textContent = product.id;
     templateFavorite.querySelectorAll("td")[0].textContent = product.make;
     templateFavorite.querySelectorAll("td")[1].textContent = product.model;
     templateFavorite.querySelectorAll("td")[2].textContent = product.price;
     templateFavorite.querySelectorAll("td")[3].textContent = product.amount;
-    templateFavorite.querySelector(".sumar").dataset.id = product.id;
+    templateFavorite.querySelector(".btn-delete--favorite").dataset.id =
+      product.id;
     // templateFavorite.querySelector(".restar").dataset.id = product.id;
     // templateFavorite.querySelector("span").textContent =
     //   product.amount * product.price;
@@ -313,6 +318,17 @@ const btnAmount = (e) => {
   }
 
   e.stopPropagation();
+};
+
+const btnDeleteFavorite = (e) => {
+  // console.log(e.target.parentElement.parentElement);
+  if (e.target.classList.contains("btn-delete--favorite")) {
+    delete favorite[e.target.dataset.id];
+    // console.log(element);
+    paintFavorite();
+  }
+  e.stopPropagation();
+  // console.log(e.target.classList.contains("btn-delete--favorite"));
 };
 
 //********************* Code Favorite */
