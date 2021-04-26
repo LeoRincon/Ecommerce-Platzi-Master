@@ -1,7 +1,6 @@
 const iconMenu = document.getElementById("icon-menu");
 //items del carrito
 const items = document.getElementById("items");
-
 const footerCar = document.getElementById("footer-car");
 // debugger;
 const menu = document.getElementById("menu");
@@ -10,16 +9,15 @@ const templateProduct = document.getElementById("container-products").content;
 const templateFooterCar = document.getElementById("template-footer--car")
   .content;
 const templateCar = document.getElementById("template-car").content;
-
 const category1 = document.getElementById("item-category1");
 const tableCar = document.querySelector(".table-car");
-
 const btnCart = document.querySelector(".navbar--car");
 const fragment = document.createDocumentFragment();
 
-console.log(category1);
+// console.log(category1);
 
 let car = {};
+let data;
 
 // ******************* Code Menu
 
@@ -30,34 +28,41 @@ const openCloseMenu = () => {
 
 iconMenu.addEventListener("click", openCloseMenu);
 
-// ******************* Code call to the Api
+//**************** Code Visivility table */
 
-const activeTable = () => {
+const activeTableCar = () => {
   mount.innerHTML = "";
   tableCar.classList.toggle("table-active");
+  if (!tableCar.classList.contains("table-active")) {
+    paintProducts(data);
+  }
 };
 
-category1.addEventListener("click", (e) => {
-  openCloseMenu();
-  // activeTable();
-  // console.log(e);
+btnCart.addEventListener("click", activeTableCar);
+
+// ******************* Code call to the Api
+
+document.addEventListener("DOMContentLoaded", (e) => {
   fetchData();
   if (localStorage.getItem("car")) {
     car = JSON.parse(localStorage.getItem("car"));
     paintCar();
   }
-  if (tableCar.classList.contains("table-active")) {
-    tableCar.classList.remove("table-active");
-  }
 });
 
-mount.addEventListener("click", (e) => {
-  addCar(e);
-});
-
-items.addEventListener("click", (e) => {
-  btnAmount(e);
-});
+// category1.addEventListener("click", (e) => {
+//   openCloseMenu();
+//   // activeTable();
+//   // console.log(e);
+//   // fetchData();
+//   // if (localStorage.getItem("car")) {
+//   //   car = JSON.parse(localStorage.getItem("car"));
+//   //   paintCar();
+//   // }
+//   if (tableCar.classList.contains("table-active")) {
+//     tableCar.classList.remove("table-active");
+//   }
+// });
 
 const fetchData = async () => {
   try {
@@ -66,17 +71,40 @@ const fetchData = async () => {
       "../api.json"
     );
     // debugger;
-    const data = await answer.json();
-    // console.log(data);
-    paintProducts(data);
+    data = await answer.json();
+    // // console.log(data);
+    // const data = localStorage.setItem("product", JSON.stringify(data));
+    // paintProducts(data);
+    console.log(data);
+
+    // return data;
   } catch (error) {
     console.log(error);
   }
 };
 
+category1.addEventListener("click", (e) => {
+  openCloseMenu();
+  // activeTable();
+  // console.log(e);
+  // fetchData();
+  // if (localStorage.getItem("car")) {
+  //   car = JSON.parse(localStorage.getItem("car"));
+  //   paintCar();
+  // }
+  paintProducts(data);
+  if (tableCar.classList.contains("table-active")) {
+    tableCar.classList.remove("table-active");
+  }
+});
+//******************** Code paint product in the DOM */
 const paintProducts = (data) => {
   // console.log(data);
+  // if (localStorage.getItem("product")) {
+  //   data = JSON.parse(localStorage.getItem("product"));
+  // }
   data.forEach((product) => {
+    // debugger;
     // console.log(product);
     templateProduct.querySelector("img").setAttribute("src", product.img);
     templateProduct.querySelector("h4").textContent = product.make;
@@ -90,12 +118,27 @@ const paintProducts = (data) => {
   mount.appendChild(fragment);
 };
 
-const addCar = (e) => {
+//********************* Code Cart */
+
+mount.addEventListener("click", (e) => {
+  addProduct(e);
+});
+
+items.addEventListener("click", (e) => {
+  btnAmount(e);
+});
+
+const addProduct = (e) => {
   // console.log(e.target);
   // console.log(e.target.classList.contains("fovorite-car--car"));
   if (e.target.classList.contains("fovorite-car--car")) {
     setCar(e.target.parentElement.parentElement);
   }
+  if (e.target.classList.contains("fovorite-car--favorite")) {
+    console.log("soy favorito");
+  }
+  console.log(e.target);
+
   e.stopPropagation();
 };
 
@@ -200,12 +243,4 @@ const btnAmount = (e) => {
   e.stopPropagation();
 };
 
-// const table = document.querySelector(".table");
-// const btnCart = document.querySelector(".navbar--car");
-
-// const activeTable = () => {
-//   mount.innerHTML = "";
-//   table.classList.toggle("table-active");
-// };
-
-btnCart.addEventListener("click", activeTable);
+//********************* Code Favorite */

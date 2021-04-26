@@ -89,5 +89,12 @@
     "model": "Rio",
     "price": 100,
     "img": "https://via.placeholder.com/150/771796"
+  },
+  {
+    "id": 13,
+    "make": "Kia13",
+    "model": "Rio",
+    "price": 100,
+    "img": "https://via.placeholder.com/150/771796"
   }
 ]
