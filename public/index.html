@@ -121,6 +121,22 @@
           </tr>
         </tfoot>
       </table>
+
+      <table class="table-favorite">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">make</th>
+            <th scope="col">model</th>
+            <th scope="col">Price Und</th>
+            <th scope="col">cantidad</th>
+            <th scope="col">Acción</th>
+            <!-- <th scope="col">Total</th> -->
+          </tr>
+        </thead>
+        <tbody id="items-favorites"></tbody>
+      </table>
+
       <div id="mount-products">
 
       </div>
@@ -162,6 +178,25 @@
       </tr>
     </template>
 
+    <template id="template-favorite">
+      <tr>
+        <th scope="row">id</th>
+        <td>make</td>
+        <td>model</td>
+        <td>price</td>
+        <td>amount</td>
+
+        <td>
+          <button class="sumar">
+            x
+          </button>
+          <!-- <button class="restar">
+            -
+          </button> -->
+        </td>
+        <!-- <td>$ <span>500</span></td> -->
+      </tr>
+    </template>
 
     <template id="template-footer--car">
       <th scope="row" colspan="2">Total productos</th>

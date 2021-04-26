@@ -243,11 +243,13 @@ main .container-products .product-card .fovorite-car .fovorite-car--car:hover {
   color: #0097a7;
 }
 
-.table-car {
+.table-car,
+.table-favorite {
   display: none;
 }
 
-.table-active {
+.table-active,
+.table-favorite--active {
   display: table;
 }
 

@@ -1,6 +1,7 @@
 const iconMenu = document.getElementById("icon-menu");
 //items del carrito
 const items = document.getElementById("items");
+const itemsFavorite = document.getElementById("items-favorites");
 const footerCar = document.getElementById("footer-car");
 // debugger;
 const menu = document.getElementById("menu");
@@ -9,15 +10,20 @@ const templateProduct = document.getElementById("container-products").content;
 const templateFooterCar = document.getElementById("template-footer--car")
   .content;
 const templateCar = document.getElementById("template-car").content;
+const templateFavorite = document.getElementById("template-favorite").content;
 const category1 = document.getElementById("item-category1");
 const tableCar = document.querySelector(".table-car");
+const tableFavorite = document.querySelector(".table-favorite");
 const btnCart = document.querySelector(".navbar--car");
+const btnFavorite = document.querySelector(".navbar--favorite");
+
 const fragment = document.createDocumentFragment();
 
 // console.log(category1);
 
 let car = {};
 let data;
+let favorite = {};
 
 // ******************* Code Menu
 
@@ -33,12 +39,27 @@ iconMenu.addEventListener("click", openCloseMenu);
 const activeTableCar = () => {
   mount.innerHTML = "";
   tableCar.classList.toggle("table-active");
+  if (tableFavorite.classList.contains("table-favorite--active")) {
+    tableFavorite.classList.remove("table-favorite--active");
+  }
   if (!tableCar.classList.contains("table-active")) {
     paintProducts(data);
   }
 };
 
+const activeTableFavorite = () => {
+  mount.innerHTML = "";
+  tableFavorite.classList.toggle("table-favorite--active");
+  if (tableCar.classList.contains("table-active")) {
+    tableCar.classList.remove("table-active");
+  }
+  if (!tableFavorite.classList.contains("table-favorite--active")) {
+    paintProducts(data);
+  }
+};
+
 btnCart.addEventListener("click", activeTableCar);
+btnFavorite.addEventListener("click", activeTableFavorite);
 
 // ******************* Code call to the Api
 
@@ -47,6 +68,10 @@ document.addEventListener("DOMContentLoaded", (e) => {
   if (localStorage.getItem("car")) {
     car = JSON.parse(localStorage.getItem("car"));
     paintCar();
+  }
+  if (localStorage.getItem("favorite")) {
+    favorite = JSON.parse(localStorage.getItem("favorite"));
+    paintFavorite();
   }
 });
 
@@ -75,7 +100,7 @@ const fetchData = async () => {
     // // console.log(data);
     // const data = localStorage.setItem("product", JSON.stringify(data));
     // paintProducts(data);
-    console.log(data);
+    // console.log(data);
 
     // return data;
   } catch (error) {
@@ -133,11 +158,13 @@ const addProduct = (e) => {
   // console.log(e.target.classList.contains("fovorite-car--car"));
   if (e.target.classList.contains("fovorite-car--car")) {
     setCar(e.target.parentElement.parentElement);
+    // console.log(e.target.parentElement.parentElement);
   }
   if (e.target.classList.contains("fovorite-car--favorite")) {
-    console.log("soy favorito");
+    setFavorite(e.target.parentElement.parentElement);
+    // console.log(e.target.parentElement.parentElement);
   }
-  console.log(e.target);
+  // console.log(e.target);
 
   e.stopPropagation();
 };
@@ -158,6 +185,25 @@ const setCar = (obj) => {
   car[producto.id] = { ...producto };
   // console.log(car);
   paintCar();
+};
+
+const setFavorite = (obje) => {
+  // console.log(obje);
+  const productoFavorite = {
+    id: obje.querySelector(".fovorite-car--car").dataset.id,
+    make: obje.querySelector("h4").textContent,
+    model: obje.querySelector("h5").textContent,
+    price: obje.querySelector("span").textContent,
+    amount: 1,
+  };
+
+  if (favorite.hasOwnProperty(productoFavorite.id)) {
+    // productoFavorite.amount = favorite[productoFavorite.id].amount + 1;
+  }
+  favorite[productoFavorite.id] = { ...productoFavorite };
+  // console.log(car);
+  console.log(productoFavorite);
+  paintFavorite();
 };
 
 const paintCar = () => {
@@ -184,6 +230,32 @@ const paintCar = () => {
   paintFooterCar();
 
   localStorage.setItem("car", JSON.stringify(car));
+};
+
+const paintFavorite = () => {
+  console.log(favorite);
+  // items.innerHTML = "";
+  Object.values(favorite).forEach((product) => {
+    templateFavorite.querySelector("th").textContent = product.id;
+    templateFavorite.querySelectorAll("td")[0].textContent = product.make;
+    templateFavorite.querySelectorAll("td")[1].textContent = product.model;
+    templateFavorite.querySelectorAll("td")[2].textContent = product.price;
+    templateFavorite.querySelectorAll("td")[3].textContent = product.amount;
+    templateFavorite.querySelector(".sumar").dataset.id = product.id;
+    // templateFavorite.querySelector(".restar").dataset.id = product.id;
+    // templateFavorite.querySelector("span").textContent =
+    //   product.amount * product.price;
+    // debugger;
+
+    const clone = templateFavorite.cloneNode(true);
+    fragment.appendChild(clone);
+  });
+
+  itemsFavorite.appendChild(fragment);
+
+  // paintFooterCar();
+
+  localStorage.setItem("favorite", JSON.stringify(favorite));
 };
 
 const paintFooterCar = () => {
