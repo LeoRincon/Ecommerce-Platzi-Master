@@ -149,6 +149,7 @@ header .list-items-categorias:hover .container-subcategorias, header .container-
   background-color: #b2ebf2;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 .navbar .navbar__search {
   margin-left: 20px;
@@ -188,6 +189,12 @@ main {
 main .container-products {
   display: grid;
   justify-content: center;
+}
+main .container-products .mount-products {
+  width: 90vw;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
 }
 main .container-products .product-card {
   width: 250px;
@@ -248,9 +255,47 @@ main .container-products .product-card .fovorite-car .fovorite-car--car:hover {
   display: none;
 }
 
-.table-active,
-.table-favorite--active {
+.table-favorite--active,
+.table-active {
   display: table;
+  width: 340px;
+  text-align: center;
+}
+
+.btn-delete--favorite {
+  border: none;
+  background-color: #fd5e53;
+  width: 17px;
+  height: 17px;
+  text-align: center;
+  color: #f9fcfb;
+  font-weight: 500;
+}
+
+.btn-add,
+.btn-subtract {
+  border: none;
+  width: 15px;
+  height: 15px;
+  background-color: #fd5e53;
+  color: #f9fcfb;
+  font-weight: 500;
+  text-align: center;
+}
+
+.btn-add {
+  background-color: #0097a7;
+}
+
+.empty-car {
+  width: 100px;
+  height: 25px;
+  background-color: #fd5e53;
+  color: #f9fcfb;
+  font-weight: 500;
+  text-align: center;
+  border: none;
+  border-radius: 20px;
 }
 
 .footer {

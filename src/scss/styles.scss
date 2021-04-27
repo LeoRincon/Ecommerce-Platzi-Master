@@ -185,6 +185,7 @@ header {
   background-color: $light-blue;
   display: flex;
   align-items: center;
+  justify-content: center;
 
   & .navbar__search {
     margin-left: 20px;
@@ -229,6 +230,13 @@ main {
     // background-color: red;
     display: grid;
     justify-content: center;
+    // grid-template-columns: 1fr;
+    & .mount-products {
+      width: 90vw;
+      display: grid;
+      grid-template-columns: 1fr;
+      justify-items: center;
+    }
 
     & .product-card {
       // background-color: royalblue;
@@ -300,9 +308,49 @@ main {
 .table-favorite {
   display: none;
 }
-.table-active,
-.table-favorite--active {
+// .table-active {
+//   display: table;
+// }
+.table-favorite--active,
+.table-active {
   display: table;
+  width: 340px;
+  text-align: center;
+}
+
+.btn-delete--favorite {
+  border: none;
+  background-color: $orange;
+  width: 17px;
+  height: 17px;
+  text-align: center;
+  color: $white;
+  font-weight: 500;
+}
+
+.btn-add,
+.btn-subtract {
+  border: none;
+  width: 15px;
+  height: 15px;
+  background-color: $orange;
+  color: $white;
+  font-weight: 500;
+  text-align: center;
+}
+.btn-add {
+  background-color: $blue-dark;
+}
+
+.empty-car {
+  width: 100px;
+  height: 25px;
+  background-color: $orange;
+  color: $white;
+  font-weight: 500;
+  text-align: center;
+  border: none;
+  border-radius: 20px;
 }
 // ************************** Styles Footer
 .footer {

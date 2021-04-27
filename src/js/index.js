@@ -117,6 +117,9 @@ category1.addEventListener("click", (e) => {
   //   car = JSON.parse(localStorage.getItem("car"));
   //   paintCar();
   // }
+  if (tableFavorite.classList.contains("table-favorite--active")) {
+    tableFavorite.classList.remove("table-favorite--active");
+  }
   paintProducts(data);
   if (tableCar.classList.contains("table-active")) {
     tableCar.classList.remove("table-active");
