@@ -439,3 +439,17 @@ searchProduct.addEventListener("keyup", (e) => {
     // debugger;
   }
 });
+
+//***************************** Code filter for category */
+
+menu.addEventListener("click", (e) => {
+  console.log(e);
+  if (e.target.classList.contains("item-categoria")) {
+    const filter = e.target.innerHTML;
+    buscar(data, filter);
+  }
+  if (e.target.classList.contains("item-subcategory")) {
+    const filter = e.target.innerHTML;
+    buscar(data, filter);
+  }
+});

@@ -161,7 +161,7 @@ header .list-items-categorias:hover .container-subcategorias, header .container-
   align-items: center;
 }
 .navbar .navbar__search input {
-  width: 150px;
+  width: 90%;
   height: 30px;
   border: none;
   outline: none;

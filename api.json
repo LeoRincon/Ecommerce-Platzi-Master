@@ -72,27 +72,27 @@
   {
     "id": 11,
     "make": "Kia11",
-    "model": "Rio",
+    "model": "MX-5",
     "price": 100,
     "img": "https://via.placeholder.com/150/771796"
   },
   {
     "id": 12,
     "make": "Kia12",
-    "model": "Rio",
+    "model": "A4",
     "price": 100,
     "img": "https://via.placeholder.com/150/771796"
   },
   {
     "id": 13,
-    "make": "Kia13",
+    "make": "Audi",
     "model": "Rio",
     "price": 100,
     "img": "https://via.placeholder.com/150/771796"
   },
   {
-    "id": 13,
-    "make": "Kia13",
+    "id": 14,
+    "make": "Mazda",
     "model": "Rio",
     "price": 100,
     "img": "https://via.placeholder.com/150/771796"
