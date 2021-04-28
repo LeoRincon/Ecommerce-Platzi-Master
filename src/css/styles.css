@@ -196,6 +196,18 @@ main .container-products .mount-products {
   grid-template-columns: 1fr;
   justify-items: center;
 }
+@media (min-width: 768px) {
+  main .container-products .mount-products {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+@media (min-width: 1024px) {
+  main .container-products .mount-products {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+}
 main .container-products .product-card {
   width: 250px;
   min-width: 220px;
@@ -261,12 +273,12 @@ main .container-car-favorite .table-favorite {
 }
 main .container-car-favorite .table-car .head-table,
 main .container-car-favorite .table-favorite .head-table {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   font-weight: bold;
 }
 main .container-car-favorite .table-car tr,
 main .container-car-favorite .table-favorite tr {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-weight: normal;
 }
 main .container-car-favorite .table-car tr:nth-child(even),

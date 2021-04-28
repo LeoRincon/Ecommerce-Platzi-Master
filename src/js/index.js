@@ -444,7 +444,7 @@ searchProduct.addEventListener("keyup", (e) => {
 
 menu.addEventListener("click", (e) => {
   console.log(e);
-  if (e.target.classList.contains("item-categoria")) {
+  if (e.target.classList.contains("category")) {
     const filter = e.target.innerHTML;
     buscar(data, filter);
   }

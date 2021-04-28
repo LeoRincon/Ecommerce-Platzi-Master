@@ -1,4 +1,5 @@
-@import "./variables.scss";
+@import "./_variables.scss";
+@import "./mixins.scss";
 
 * {
   margin: 0;
@@ -236,6 +237,8 @@ main {
       display: grid;
       grid-template-columns: 1fr;
       justify-items: center;
+      @include tabletMedia();
+      @include desktopMedia();
     }
 
     & .product-card {
@@ -313,12 +316,12 @@ main {
       padding: 0;
       width: 100%;
       & .head-table {
-        font-size: 1.6rem;
+        font-size: 1.4rem;
         font-weight: bold;
       }
 
       & tr {
-        font-size: 1.4rem;
+        font-size: 1.2rem;
         font-weight: normal;
 
         &:nth-child(even) {

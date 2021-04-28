@@ -1,0 +1,15 @@
+// @import "./_variables.scss";
+
+@mixin tabletMedia() {
+  @media #{$tabletMediaQuerie} {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@mixin desktopMedia() {
+  @media #{$DesktopMediaQuerie} {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+}
