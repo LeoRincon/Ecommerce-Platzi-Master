@@ -3,10 +3,8 @@ const iconMenu = document.getElementById("icon-menu");
 const items = document.getElementById("items");
 const itemsFavorite = document.getElementById("items-favorites");
 const footerCar = document.getElementById("footer-car");
-// debugger;
 const menu = document.getElementById("menu");
 const searchProduct = document.getElementById("search");
-// console.log(searchProduct);
 const mount = document.getElementById("mount-products");
 const templateProduct = document.getElementById("container-products").content;
 const templateFooterCar = document.getElementById("template-footer--car")
@@ -20,8 +18,6 @@ const btnCart = document.querySelector(".navbar--car");
 const btnFavorite = document.querySelector(".navbar--favorite");
 
 const fragment = document.createDocumentFragment();
-
-// console.log(category1);
 
 let car = {};
 let data;
@@ -77,32 +73,12 @@ document.addEventListener("DOMContentLoaded", (e) => {
   }
 });
 
-// category1.addEventListener("click", (e) => {
-//   openCloseMenu();
-//   // activeTable();
-//   // console.log(e);
-//   // fetchData();
-//   // if (localStorage.getItem("car")) {
-//   //   car = JSON.parse(localStorage.getItem("car"));
-//   //   paintCar();
-//   // }
-//   if (tableCar.classList.contains("table-active")) {
-//     tableCar.classList.remove("table-active");
-//   }
-// });
-
 const fetchData = async () => {
   try {
-    const answer = await fetch("../api.json");
-    // ("https://my.api.mockaroo.com/api_ecommerce.json?key=9a562940");
-    // debugger;
+    const answer = await fetch(
+      "https://my.api.mockaroo.com/api_ecommerce.json?key=9a562940"
+    );
     data = await answer.json();
-    // // console.log(data);
-    // const data = localStorage.setItem("product", JSON.stringify(data));
-    // paintProducts(data);
-    // console.log(data);
-
-    // return data;
   } catch (error) {
     console.log(error);
   }
@@ -110,13 +86,6 @@ const fetchData = async () => {
 
 category1.addEventListener("click", (e) => {
   openCloseMenu();
-  // activeTable();
-  // console.log(e);
-  // fetchData();
-  // if (localStorage.getItem("car")) {
-  //   car = JSON.parse(localStorage.getItem("car"));
-  //   paintCar();
-  // }
   if (tableFavorite.classList.contains("table-favorite--active")) {
     tableFavorite.classList.remove("table-favorite--active");
   }
@@ -126,14 +95,9 @@ category1.addEventListener("click", (e) => {
   }
 });
 //******************** Code paint product in the DOM */
+
 const paintProducts = (data) => {
-  // console.log(data);
-  // if (localStorage.getItem("product")) {
-  //   data = JSON.parse(localStorage.getItem("product"));
-  // }
   data.forEach((product) => {
-    // debugger;
-    // console.log(product);
     templateProduct.querySelector("img").setAttribute("src", product.img);
     templateProduct.querySelector("h4").textContent = product.make;
     templateProduct.querySelector("h5").textContent = product.model;
@@ -156,29 +120,19 @@ items.addEventListener("click", (e) => {
   btnAmount(e);
 });
 
-// itemsFavorite.addEventListener("click", (e) => {
-//   btnDeleteFavorite(e);
-// });
-
+// Add product to the cart
 const addProduct = (e) => {
-  // console.log(e.target);
-  // console.log(e.target.classList.contains("fovorite-car--car"));
   if (e.target.classList.contains("fovorite-car--car")) {
     setCar(e.target.parentElement.parentElement);
-    // console.log(e.target.parentElement.parentElement);
   }
-  // code to listen to the favorite icon event
   if (e.target.classList.contains("fovorite-car--favorite")) {
     setFavorite(e.target.parentElement.parentElement);
-    // console.log(e.target.parentElement.parentElement);
   }
-  // console.log(e.target);
 
   e.stopPropagation();
 };
 
 const setCar = (obj) => {
-  // console.log(obj);
   const producto = {
     id: obj.querySelector(".fovorite-car--car").dataset.id,
     make: obj.querySelector("h4").textContent,
@@ -191,31 +145,10 @@ const setCar = (obj) => {
     producto.amount = car[producto.id].amount + 1;
   }
   car[producto.id] = { ...producto };
-  // console.log(car);
   paintCar();
 };
 
-// const setFavorite = (obje) => {
-//   // console.log(obje);
-//   const productoFavorite = {
-//     id: obje.querySelector(".fovorite-car--car").dataset.id,
-//     make: obje.querySelector("h4").textContent,
-//     model: obje.querySelector("h5").textContent,
-//     price: obje.querySelector("span").textContent,
-//     amount: 1,
-//   };
-
-//   if (favorite.hasOwnProperty(productoFavorite.id)) {
-//     // productoFavorite.amount = favorite[productoFavorite.id].amount + 1;
-//   }
-//   favorite[productoFavorite.id] = { ...productoFavorite };
-//   // console.log(car);
-//   console.log(productoFavorite);
-//   paintFavorite();
-// };
-
 const paintCar = () => {
-  // console.log(car);
   items.innerHTML = "";
   Object.values(car).forEach((producto) => {
     templateCar.querySelector("th").textContent = producto.id;
@@ -227,7 +160,6 @@ const paintCar = () => {
     templateCar.querySelector(".btn-subtract").dataset.id = producto.id;
     templateCar.querySelector("span").textContent =
       producto.amount * producto.price;
-    // debugger;
 
     const clone = templateCar.cloneNode(true);
     fragment.appendChild(clone);
@@ -239,33 +171,6 @@ const paintCar = () => {
 
   localStorage.setItem("car", JSON.stringify(car));
 };
-
-// const paintFavorite = () => {
-//   // console.log(favorite);
-//   itemsFavorite.innerHTML = "";
-//   Object.values(favorite).forEach((product) => {
-//     templateFavorite.querySelector("th").textContent = product.id;
-//     templateFavorite.querySelectorAll("td")[0].textContent = product.make;
-//     templateFavorite.querySelectorAll("td")[1].textContent = product.model;
-//     templateFavorite.querySelectorAll("td")[2].textContent = product.price;
-//     templateFavorite.querySelectorAll("td")[3].textContent = product.amount;
-//     templateFavorite.querySelector(".btn-delete--favorite").dataset.id =
-//       product.id;
-//     // templateFavorite.querySelector(".restar").dataset.id = product.id;
-//     // templateFavorite.querySelector("span").textContent =
-//     //   product.amount * product.price;
-//     // debugger;
-
-//     const clone = templateFavorite.cloneNode(true);
-//     fragment.appendChild(clone);
-//   });
-
-//   itemsFavorite.appendChild(fragment);
-
-//   // paintFooterCar();
-
-//   localStorage.setItem("favorite", JSON.stringify(favorite));
-// };
 
 const paintFooterCar = () => {
   footerCar.innerHTML = "";
@@ -283,8 +188,6 @@ const paintFooterCar = () => {
     (accumulator, { amount, price }) => accumulator + amount * price,
     0
   );
-  // console.log(totalAmount);
-  // console.log(totalPrice);
   templateFooterCar.querySelectorAll("td")[0].textContent = totalAmount;
   templateFooterCar.querySelector("span").textContent = totalPrice;
 
@@ -292,7 +195,6 @@ const paintFooterCar = () => {
   fragment.appendChild(clone);
   footerCar.appendChild(fragment);
   const emptyCar = document.getElementById("empty-car");
-  // debugger;
 
   emptyCar.addEventListener("click", () => {
     car = {};
@@ -301,9 +203,7 @@ const paintFooterCar = () => {
 };
 
 const btnAmount = (e) => {
-  // console.log(e.target);
   if (e.target.classList.contains("btn-add")) {
-    // console.log(car[e.target.dataset.id]);
     const producto = car[e.target.dataset.id];
     producto.amount++;
     car[e.target.dataset.id] = { ...producto };
@@ -311,29 +211,16 @@ const btnAmount = (e) => {
   }
 
   if (e.target.classList.contains("btn-subtract")) {
-    // console.log(car[e.target.dataset.id]);
     const producto = car[e.target.dataset.id];
     producto.amount--;
     if (producto.amount === 0) {
       delete car[e.target.dataset.id];
     }
-    // car[e.target.dataset.id] = { ...producto };
     paintCar();
   }
 
   e.stopPropagation();
 };
-
-// const btnDeleteFavorite = (e) => {
-//   // console.log(e.target.parentElement.parentElement);
-//   if (e.target.classList.contains("btn-delete--favorite")) {
-//     delete favorite[e.target.dataset.id];
-//     // console.log(element);
-//     paintFavorite();
-//   }
-//   e.stopPropagation();
-//   // console.log(e.target.classList.contains("btn-delete--favorite"));
-// };
 
 //********************* Code Favorite */
 
@@ -342,7 +229,6 @@ itemsFavorite.addEventListener("click", (e) => {
 });
 
 const setFavorite = (obje) => {
-  // console.log(obje);
   const productoFavorite = {
     id: obje.querySelector(".fovorite-car--car").dataset.id,
     make: obje.querySelector("h4").textContent,
@@ -351,17 +237,14 @@ const setFavorite = (obje) => {
     amount: 1,
   };
 
-  if (favorite.hasOwnProperty(productoFavorite.id)) {
-    // productoFavorite.amount = favorite[productoFavorite.id].amount + 1;
-  }
+  // if (favorite.hasOwnProperty(productoFavorite.id)) {
+  // }
+
   favorite[productoFavorite.id] = { ...productoFavorite };
-  // console.log(car);
-  console.log(productoFavorite);
   paintFavorite();
 };
 
 const paintFavorite = () => {
-  // console.log(favorite);
   itemsFavorite.innerHTML = "";
   Object.values(favorite).forEach((product) => {
     templateFavorite.querySelector("th").textContent = product.id;
@@ -371,10 +254,6 @@ const paintFavorite = () => {
     templateFavorite.querySelectorAll("td")[3].textContent = product.amount;
     templateFavorite.querySelector(".btn-delete--favorite").dataset.id =
       product.id;
-    // templateFavorite.querySelector(".restar").dataset.id = product.id;
-    // templateFavorite.querySelector("span").textContent =
-    //   product.amount * product.price;
-    // debugger;
 
     const clone = templateFavorite.cloneNode(true);
     fragment.appendChild(clone);
@@ -382,43 +261,24 @@ const paintFavorite = () => {
 
   itemsFavorite.appendChild(fragment);
 
-  // paintFooterCar();
-
   localStorage.setItem("favorite", JSON.stringify(favorite));
 };
 
 const btnDeleteFavorite = (e) => {
-  // console.log(e.target.parentElement.parentElement);
   if (e.target.classList.contains("btn-delete--favorite")) {
     delete favorite[e.target.dataset.id];
-    // console.log(element);
     paintFavorite();
   }
   e.stopPropagation();
-  // console.log(e.target.classList.contains("btn-delete--favorite"));
 };
 
 //******************** Code of Search */
-// console.log(searchProduct.value);
 
 function buscar(data, filter) {
-  // if (data[i].make in data === filter) {
-  //   debugger;
-  //   console.log(data.model);
-  // }
-  const filtrado = data.filter(
-    // (producto) => producto.make.toUpperCase() === filter.toUpperCase()
-    (producto) => {
-      // producto.make.toUpperCase().includes(filter.toUpperCase()) ||
-      //   producto.model.toUpperCase().includes(filter.toUpperCase());
-      // `${producto.make} ${producto.model}`
-      //   .toUpperCase()
-      //   .includes(filter.toUpperCase());
-      const { make, model } = producto;
-      return `${make} ${model}`.toUpperCase().includes(filter.toUpperCase());
-    }
-  );
-  console.log(filtrado);
+  const filtrado = data.filter((producto) => {
+    const { make, model } = producto;
+    return `${make} ${model}`.toUpperCase().includes(filter.toUpperCase());
+  });
   mount.innerHTML = "";
   paintProducts(filtrado);
 }
@@ -426,24 +286,19 @@ function buscar(data, filter) {
 searchProduct.addEventListener("keyup", (e) => {
   e.preventDefault();
   const filter = searchProduct.value;
-  // console.log(filter);
   if (e.key === "Enter") {
-    // debugger;
     if (searchProduct.value === "") {
       mount.innerHTML = "";
       paintProducts(data);
-      // debugger;
     } else {
       buscar(data, filter);
     }
-    // debugger;
   }
 });
 
 //***************************** Code filter for category */
 
 menu.addEventListener("click", (e) => {
-  console.log(e);
   if (e.target.classList.contains("category")) {
     const filter = e.target.innerHTML;
     buscar(data, filter);
