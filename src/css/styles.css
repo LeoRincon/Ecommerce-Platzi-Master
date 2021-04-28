@@ -249,6 +249,40 @@ main .container-products .product-card .fovorite-car .fovorite-car--car {
 main .container-products .product-card .fovorite-car .fovorite-car--car:hover {
   color: #0097a7;
 }
+main .container-car-favorite {
+  display: grid;
+  justify-items: center;
+}
+main .container-car-favorite .table-car,
+main .container-car-favorite .table-favorite {
+  border-collapse: collapse;
+  padding: 0;
+  width: 100%;
+}
+main .container-car-favorite .table-car .head-table,
+main .container-car-favorite .table-favorite .head-table {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+main .container-car-favorite .table-car tr,
+main .container-car-favorite .table-favorite tr {
+  font-size: 1.4rem;
+  font-weight: normal;
+}
+main .container-car-favorite .table-car tr:nth-child(even),
+main .container-car-favorite .table-favorite tr:nth-child(even) {
+  background-color: #b2ebf2;
+}
+main .container-car-favorite .table-car th,
+main .container-car-favorite .table-car td,
+main .container-car-favorite .table-favorite th,
+main .container-car-favorite .table-favorite td {
+  padding: 5px 15px;
+}
+
+.cart-vacio {
+  color: #fd5e53;
+}
 
 .table-car,
 .table-favorite {

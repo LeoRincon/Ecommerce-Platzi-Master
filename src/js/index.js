@@ -93,10 +93,8 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
 const fetchData = async () => {
   try {
-    const answer = await fetch(
-      // "https://my.api.mockaroo.com/api_ecommerce.json?key=9a562940"
-      "../api.json"
-    );
+    const answer = await fetch("../api.json");
+    // ("https://my.api.mockaroo.com/api_ecommerce.json?key=9a562940");
     // debugger;
     data = await answer.json();
     // // console.log(data);

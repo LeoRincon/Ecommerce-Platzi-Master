@@ -302,8 +302,40 @@ main {
       }
     }
   }
+
+  & .container-car-favorite {
+    display: grid;
+    justify-items: center;
+
+    & .table-car,
+    .table-favorite {
+      border-collapse: collapse;
+      padding: 0;
+      width: 100%;
+      & .head-table {
+        font-size: 1.6rem;
+        font-weight: bold;
+      }
+
+      & tr {
+        font-size: 1.4rem;
+        font-weight: normal;
+
+        &:nth-child(even) {
+          background-color: $light-blue;
+        }
+      }
+      & th,
+      td {
+        padding: 5px 15px;
+      }
+    }
+  }
 }
 
+.cart-vacio {
+  color: $orange;
+}
 .table-car,
 .table-favorite {
   display: none;
