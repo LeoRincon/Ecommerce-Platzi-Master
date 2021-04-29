@@ -96,7 +96,6 @@ header {
       justify-content: center;
       top: 80px;
       right: 0px;
-      // padding: 10px 20px;
       background-color: $white;
       width: 180px;
       border-radius: 15px;
@@ -127,17 +126,6 @@ header {
       }
     }
 
-    // & .menu::before {
-    //   content: "";
-    //   position: absolute;
-    //   top: 3px;
-    //   right: 65px;
-    //   width: 20px;
-    //   height: 20px;
-    //   background-color: $white;
-    //   transform: rotate(45deg);
-    // }
-
     & .menu.menu-list--active {
       top: 40px;
       visibility: visible;
@@ -150,7 +138,6 @@ header {
     position: absolute;
     width: 160px;
     height: auto;
-    // top: 0px;
     right: 140px;
     background-color: $white;
     text-align: center;
@@ -228,10 +215,8 @@ main {
   padding-bottom: 50px;
 
   & .container-products {
-    // background-color: red;
     display: grid;
     justify-content: center;
-    // grid-template-columns: 1fr;
     & .mount-products {
       width: 90vw;
       display: grid;
@@ -242,7 +227,6 @@ main {
     }
 
     & .product-card {
-      // background-color: royalblue;
       width: 250px;
       min-width: 220px;
       max-width: 320px;
@@ -252,7 +236,6 @@ main {
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      // border: 1px solid black;
       box-shadow: -1px 1px 6px 0px $color-shodow;
       border-radius: 20px;
       background-color: $white;
@@ -343,9 +326,7 @@ main {
 .table-favorite {
   display: none;
 }
-// .table-active {
-//   display: table;
-// }
+
 .table-favorite--active,
 .table-active {
   display: table;
@@ -393,7 +374,6 @@ main {
   height: 60px;
   position: fixed;
   bottom: 0;
-  // margin-top: 30px;
   background-color: $light-blue;
   display: flex;
   justify-content: center;
